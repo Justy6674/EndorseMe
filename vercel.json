@@ -1,0 +1,15 @@
+{
+  "buildCommand": "vite build",
+  "outputDirectory": "dist/public",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/404"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
