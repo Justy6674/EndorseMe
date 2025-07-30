@@ -38,7 +38,7 @@ export default function Landing() {
               <a href="#pathways" className="text-slate-300 hover:text-slate-50 transition-colors">Pathways</a>
               <a href="#pricing" className="text-slate-300 hover:text-slate-50 transition-colors">Pricing</a>
               <Button 
-                onClick={() => window.location.href = '/api/login'}
+                onClick={() => window.location.href = '/auth'}
                 className="bg-sky-600 hover:bg-sky-500 text-white"
               >
                 Get Started
@@ -66,7 +66,7 @@ export default function Landing() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg"
-                  onClick={() => window.location.href = '/api/login'}
+                  onClick={() => window.location.href = '/auth'}
                   className="bg-sky-600 hover:bg-sky-500 text-white px-8 py-4 text-lg font-semibold transform hover:scale-105 transition-all"
                 >
                   Start Your Journey
@@ -383,7 +383,7 @@ export default function Landing() {
                 </ul>
                 <Button 
                   className="w-full bg-slate-700 hover:bg-slate-600"
-                  onClick={() => window.location.href = '/api/login'}
+                  onClick={() => window.location.href = '/auth'}
                 >
                   Get Started
                 </Button>
@@ -418,7 +418,7 @@ export default function Landing() {
                 </ul>
                 <Button 
                   className="w-full bg-sky-600 hover:bg-sky-500"
-                  onClick={() => window.location.href = '/api/login'}
+                  onClick={() => window.location.href = '/auth'}
                 >
                   Choose Professional
                 </Button>
@@ -450,7 +450,7 @@ export default function Landing() {
                 </ul>
                 <Button 
                   className="w-full bg-slate-700 hover:bg-slate-600"
-                  onClick={() => window.location.href = '/api/login'}
+                  onClick={() => window.location.href = '/auth'}
                 >
                   Contact Sales
                 </Button>
@@ -473,7 +473,7 @@ export default function Landing() {
             <Button 
               size="lg"
               className="bg-white text-sky-600 hover:bg-sky-50 px-8 py-4 text-lg font-semibold"
-              onClick={() => window.location.href = '/api/login'}
+              onClick={() => window.location.href = '/auth'}
             >
               Start Free Trial
             </Button>

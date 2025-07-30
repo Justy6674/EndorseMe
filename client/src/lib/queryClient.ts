@@ -29,7 +29,51 @@ export const getQueryFn: <T>(options: {
 }) => QueryFunction<T> =
   ({ on401: unauthorizedBehavior }) =>
   async ({ queryKey }) => {
-    const res = await fetch(queryKey.join("/") as string, {
+    // Import api dynamically to avoid circular dependencies
+    const { api } = await import('./api');
+    const endpoint = queryKey.join("/") as string;
+    
+    // Handle new API endpoints
+    if (endpoint.startsWith('/api/')) {
+      try {
+        switch (endpoint) {
+          case '/api/auth/user':
+            return await api.getUser();
+          case '/api/dashboard':
+            return await api.getDashboard();
+          case '/api/practice-hours':
+            return await api.getPracticeHours();
+          case '/api/cpd':
+            return await api.getCpdRecords();
+          case '/api/documents':
+            return await api.getDocuments();
+          case '/api/progress':
+            return await api.getProgress();
+          case '/api/competencies':
+            return await api.getCompetencies();
+          default:
+            // Fallback to fetch for unknown endpoints
+            const res = await fetch(endpoint, {
+              credentials: "include",
+            });
+
+            if (unauthorizedBehavior === "returnNull" && res.status === 401) {
+              return null;
+            }
+
+            await throwIfResNotOk(res);
+            return await res.json();
+        }
+      } catch (error: any) {
+        if (unauthorizedBehavior === "returnNull" && error.message?.includes('Unauthorized')) {
+          return null;
+        }
+        throw error;
+      }
+    }
+    
+    // Non-API endpoints
+    const res = await fetch(endpoint, {
       credentials: "include",
     });
 
