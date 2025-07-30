@@ -4,3 +4,22 @@ dist
 server/public
 vite.config.ts.*
 *.tar.gz
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+
+# Database
+*.db
+*.sqlite
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
